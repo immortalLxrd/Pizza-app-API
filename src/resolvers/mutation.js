@@ -3,7 +3,6 @@ const { findByIdAndRemove, findOneAndUpdate } = require("../models/pizza")
 module.exports = {
     newPizza: async (parent, args, { models }) => {
         return await models.Pizza.create({
-            id: String(pizzaList.length + 1),
             name: args.name,
             size: args.size,
             slices: args.slices,

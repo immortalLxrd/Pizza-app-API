@@ -1,6 +1,8 @@
 const { gql } = require('apollo-server-express')
 
 module.exports = gql`
+    scalar DateTime
+
     type Query {
         hello: String
         pizzaList: [Pizza!]!
@@ -12,12 +14,14 @@ module.exports = gql`
         name: String!
         size: String!
         slices: Int!
-        toppings: [String]
+        toppings: []
+        createdAt: DateTime!
+        updatedAt: DateTime!
     }
 
     type Mutation {
         newPizza(name: String!, size: String!, slices: Int!): Pizza!
-        updatePizza(id: ID!, name: String!, size: String!, slices: Int!): Pizza!
+        updatePizza(id: ID!, name: String!, size: String!, slices: Int!, toppings: [String]): Pizza!
         deletePizza(id: ID!): Boolean!
     }
 `
