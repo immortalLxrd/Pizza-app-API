@@ -14,7 +14,7 @@ module.exports = gql`
         name: String!
         size: String!
         slices: Int!
-        toppings: []
+        toppings: [String]
         createdAt: DateTime!
         updatedAt: DateTime!
     }
