@@ -1,7 +1,9 @@
 const Pizza = require('./pizza')
+const User = require('./user')
 
 const models = {
-    Pizza
+    Pizza,
+    User
 }
 
 module.exports = models

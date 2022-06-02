@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+
 module.exports = {
     connect: DB_HOST => {
         // Подключаемся к БД 
