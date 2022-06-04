@@ -10,6 +10,7 @@ module.exports = gql`
         user(phoneNumber: String!): User
         users: [User!]!
         me: User!
+        pizzaFeed(cursor: String): PizzaFeed
     }
 
     type Pizza {
@@ -28,6 +29,12 @@ module.exports = gql`
         email: String!
         password: String!
         permissions: [String!]!
+    }
+
+    type PizzaFeed {
+        items: [Pizza]!
+        cursor: String!
+        hasNextPage: Boolean!
     }
 
     type Mutation {
