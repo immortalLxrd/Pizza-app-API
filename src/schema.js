@@ -17,8 +17,7 @@ module.exports = gql`
         id: ID!
         name: String!
         size: String!
-        slices: Int!
-        toppings: [String]
+        price: Int!
         createdAt: DateTime!
         updatedAt: DateTime!
     }
@@ -38,8 +37,8 @@ module.exports = gql`
     }
 
     type Mutation {
-        newPizza(name: String!, size: String!, slices: Int!): Pizza!
-        updatePizza(id: ID!, name: String!, size: String!, slices: Int!, toppings: [String]): Pizza!
+        newPizza(name: String!, size: String!, price: Int!): Pizza!
+        updatePizza(id: ID!, name: String!, size: String!, price: Int!): Pizza!
         deletePizza(id: ID!): Boolean!
         signUp(phoneNumber: String!, email: String, password: String!): String!
         signIn(phoneNumber: String!, password: String!): String!

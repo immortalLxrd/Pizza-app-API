@@ -10,13 +10,9 @@ const pizzaSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        slices: {
+        price: {
             type: Number,
-            default: 6
-        },
-        toppings: {
-            type: Array,
-            default: []
+            default: 3
         }
     },
     {
