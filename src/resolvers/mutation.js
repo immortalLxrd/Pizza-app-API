@@ -19,6 +19,7 @@ module.exports = {
 
 		return await models.Pizza.create({
 			name: args.name,
+			img: args.img,
 			size: args.size,
 			price: args.price
 		})
@@ -44,7 +45,7 @@ module.exports = {
 		}
 	},
 
-	updatePizza: async (parent, {id, name, size, price}, {models, user}) => {
+	updatePizza: async (parent, {id, name, img, size, price}, {models, user}) => {
 		if (!user) {
 			throw new AuthenticationError('You must be signed')
 		}
@@ -65,6 +66,7 @@ module.exports = {
 			{
 				$set: {
 					name,
+					img,
 					size,
 					price
 				}

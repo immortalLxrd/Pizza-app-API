@@ -6,12 +6,18 @@ const pizzaSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        img: {
+            type: String,
+            required: true,
+            default: "/img/pizza.png"
+        },
         size: {
             type: String,
             required: true
         },
         price: {
-            type: Number,
+            type: String,
+            required: true,
             default: 3
         }
     },
