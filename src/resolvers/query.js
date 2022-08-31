@@ -17,16 +17,18 @@ module.exports = {
 	me: async (parent, args, {models, user}) => {
 		return await models.User.findById(user.id)
 	},
-	pizzaFeed: async (parent, args, {models}) => {
-		const limit = 10
+	pizzaFeed: async (parent, {cursor}, {models}) => {
+		const limit = 8
 		let hasNextPage = false
 		let cursorQuery = {}
 
-		if (Cursor) {
+		if (cursor) {
 			cursorQuery = {_id: {$lt: cursor}}
 		}
 
-		let items = await models.Pizza.find(cursorQuery).sort({_id: -1}).limit(limit + 1)
+		let items = await models.Pizza.find(cursorQuery)
+			.sort({_id: -1})
+			.limit(limit + 1)
 
 		if (items.length > limit) {
 			hasNextPage = true
